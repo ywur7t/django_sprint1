@@ -51,10 +51,12 @@ def index(request):
     context = {'posts': list(reversed(posts))}
     return render(request, 'blog/index.html', context)
 
+
 def post_detail(request, id):
     post = next((post for post in posts if post['id'] == id), None)
     context = {'post': post}
     return render(request, 'blog/detail.html', context)
+
 
 def category_posts(request, category_slug):
     context = {'category_slug': category_slug}
